@@ -1,0 +1,37 @@
+<!-- <p>todos works!</p> -->
+
+<!-- <H4>{{ title }}</H4> -->
+<!-- <input value="Enter a code snippet here" /><br /><br /> -->
+
+<!-- <button class="btn btn-outline-primary" (click)="onClickExplain()">
+  Explain the code</button
+><br /><br />
+<button class="btn btn-outline-success" (click)="onClickTranslate()">
+  Translate the code</button
+><br />
+
+<textarea></textarea> -->
+
+<div class="container m-5">
+  <div class="container">
+    <app-add-todo (todoAdd)="AddTodo($event)"></app-add-todo>
+  </div>
+  <div class="m-5">
+    <h4>Your Todos</h4>
+
+    <div *ngIf="todos.length === 0; else elseBlock">No todos to display</div>
+    <ng-template #elseBlock>
+      <div *ngFor="let todo of todos; index as i">
+        <app-todo-item
+          [todo]="todo"
+          [i]="i"
+          (todoDelete)="DeleteTodo($event)"
+          (todoCheckbox)="ToggleTodo($event)"
+        ></app-todo-item>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<!-- <input type="text" [(ngModel)]="userInput" />
+<p>User Input: {{ userInput }}</p> -->

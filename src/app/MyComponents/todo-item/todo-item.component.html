@@ -1,0 +1,18 @@
+<!-- <p>todo-item works!</p>  -- {{ todo.active }}-->
+<div class="container">
+  <h4 [ngClass]="{ strike: !todo.active }">{{ i + 1 }}. {{ todo.title }}</h4>
+  <p [ngClass]="{ strike: !todo.active }">{{ todo.desc }}</p>
+  <div class="mb-3 form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="exampleCheck1"
+      (click)="OnCheckboxClick(todo)"
+      [checked]="!todo.active"
+    />
+    <label class="form-check-label" for="exampleCheck1">Mark as Done</label>
+  </div>
+  <button class="btn btn-outline-danger" (click)="OnDelete(todo)">
+    Delete
+  </button>
+</div>
